@@ -121,7 +121,7 @@
   .nav-links a:hover::after { width: 100%; }
 
   /* ============================================
-     HERO — FULL VIEWPORT
+     HERO — FULL VIEWPORT WITH PHOTO
      ============================================ */
   .hero {
     position: relative;
@@ -133,38 +133,33 @@
     overflow: hidden;
   }
 
-  .hero-bg {
+  .hero-photo {
     position: absolute;
     inset: 0;
-    background:
-      linear-gradient(170deg,
-        #0D1F2D 0%,
-        #153347 15%,
-        #1A4A5E 30%,
-        #2D7A8A 50%,
-        #C2705B 70%,
-        #D4A574 82%,
-        #E8C992 90%,
-        #EDE6DA 100%
-      );
     z-index: 0;
+    background-image: url('images/blackrock.jpg');
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
   }
 
-  .hero-bg-layer2 {
+  .hero-overlay {
     position: absolute;
     inset: 0;
-    background:
-      radial-gradient(ellipse 120% 60% at 30% 70%, rgba(194, 112, 91, 0.35) 0%, transparent 65%),
-      radial-gradient(ellipse 100% 50% at 70% 20%, rgba(13, 31, 45, 0.3) 0%, transparent 50%),
-      radial-gradient(ellipse 60% 40% at 50% 50%, rgba(58, 143, 160, 0.15) 0%, transparent 60%);
     z-index: 1;
-    will-change: transform;
+    background:
+      linear-gradient(180deg,
+        rgba(13, 31, 45, 0.55) 0%,
+        rgba(26, 53, 66, 0.4) 40%,
+        rgba(194, 112, 91, 0.2) 70%,
+        rgba(42, 31, 26, 0.5) 100%
+      );
   }
 
   .hero-grain {
     position: absolute;
     inset: 0;
-    opacity: 0.035;
+    opacity: 0.04;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     z-index: 2;
     pointer-events: none;
@@ -199,6 +194,7 @@
     opacity: 0;
     transform: translateY(30px);
     animation: revealUp 1.2s ease-out 0.5s forwards;
+    text-shadow: 0 2px 40px rgba(0,0,0,0.15);
   }
 
   .hero-names .line2 {
@@ -398,6 +394,59 @@
   }
 
   /* ============================================
+     BREATHER IMAGES — FULL WIDTH PHOTO BREAKS
+     ============================================ */
+  .breather {
+    height: 70vh;
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .breather-img {
+    position: absolute;
+    inset: -15% 0;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+  }
+
+  .breather-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .breather-overlay.dark {
+    background: linear-gradient(180deg,
+      rgba(42, 31, 26, 0.15) 0%,
+      rgba(42, 31, 26, 0.05) 50%,
+      rgba(42, 31, 26, 0.2) 100%
+    );
+  }
+
+  .breather-overlay.warm {
+    background: linear-gradient(180deg,
+      rgba(194, 112, 91, 0.08) 0%,
+      transparent 40%,
+      rgba(42, 31, 26, 0.12) 100%
+    );
+  }
+
+  .breather-caption {
+    position: absolute;
+    bottom: 2.5rem;
+    right: 3rem;
+    z-index: 5;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+  }
+
+  /* ============================================
      SCHEDULE — STACKED FULL-SCREEN CARDS
      ============================================ */
   .schedule-intro {
@@ -531,7 +580,7 @@
   }
 
   /* ============================================
-     TRAVEL — PARALLAX-STYLE
+     TRAVEL — PARALLAX-STYLE WITH PHOTO
      ============================================ */
   .travel-hero {
     height: 60vh;
@@ -540,18 +589,29 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: var(--ocean);
     position: relative;
     overflow: hidden;
   }
 
-  .travel-hero::before {
-    content: '';
+  .travel-hero-img {
+    position: absolute;
+    inset: -15% 0;
+    background-image: url('images/beachchairs.jpg');
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+  }
+
+  .travel-hero-overlay {
     position: absolute;
     inset: 0;
+    z-index: 1;
     background:
-      radial-gradient(ellipse 100% 80% at 50% 120%, rgba(194, 112, 91, 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse 80% 50% at 20% 30%, rgba(58, 143, 160, 0.08) 0%, transparent 50%);
+      linear-gradient(180deg,
+        rgba(26, 53, 66, 0.7) 0%,
+        rgba(26, 53, 66, 0.55) 50%,
+        rgba(26, 53, 66, 0.7) 100%
+      );
   }
 
   .travel-hero .section-eyebrow { color: rgba(255,255,255,0.4); position: relative; z-index: 2; }
@@ -971,6 +1031,10 @@
     .explore-grid { grid-template-columns: 1fr 1fr; }
 
     .field-row { grid-template-columns: 1fr; }
+
+    .breather { height: 50vh; min-height: 300px; }
+
+    .breather-caption { right: 1.5rem; bottom: 1.5rem; font-size: 0.75rem; }
   }
 
   @media (max-width: 480px) {
@@ -978,6 +1042,7 @@
     .nav-links { gap: 1rem; }
     .explore-grid { grid-template-columns: 1fr; }
     .countdown-grid { gap: 1.5rem; }
+    .breather { height: 40vh; }
   }
 </style>
 </head>
@@ -996,8 +1061,8 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-bg-layer2" id="heroBgLayer"></div>
+  <div class="hero-photo" id="heroPhoto"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-grain"></div>
 
   <div class="hero-content">
@@ -1052,6 +1117,12 @@
     <p class="intro-aside">No dress code. No registry. Just you, us, and the Pacific Ocean.</p>
   </div>
 </section>
+
+<!-- ============ BREATHER 1 — DANIELE ============ -->
+<div class="breather">
+  <div class="breather-img" id="breather1" style="background-image: url('images/grass.jpg');"></div>
+  <div class="breather-overlay warm"></div>
+</div>
 
 <!-- ============ SCHEDULE ============ -->
 <div class="schedule-intro" id="schedule">
@@ -1144,9 +1215,16 @@
   </div>
 </div>
 
+<!-- ============ BREATHER 2 — TURTLES ============ -->
+<div class="breather">
+  <div class="breather-img" id="breather2" style="background-image: url('images/turtles.jpeg');"></div>
+  <div class="breather-overlay dark"></div>
+</div>
+
 <!-- ============ TRAVEL ============ -->
 <div class="travel-hero parallax-container" id="travel">
-  <div class="parallax-bg" style="background: linear-gradient(180deg, var(--ocean) 0%, var(--ocean-mid) 50%, var(--ocean-light) 100%);" id="travelParallax"></div>
+  <div class="travel-hero-img" id="travelParallax"></div>
+  <div class="travel-hero-overlay"></div>
   <div class="hero-grain" style="z-index:3;"></div>
   <div style="position:relative;z-index:5;">
     <p class="section-eyebrow">Getting There</p>
@@ -1160,7 +1238,7 @@
     <div class="travel-card reveal">
       <p class="travel-card-eyebrow">Airport</p>
       <h3 class="travel-card-title">Fly into Kahului (OGG)</h3>
-      <p>It's the only commercial airport on Maui. Direct flights from most West Coast cities. From the East Coast or Midwest, expect one connection — usually through LAX, SFO, or SEA. Expect $350–$650 round trip depending on where you're coming from. Heads up: flights take most of a day from the East Coast, and Hawaii is 6 hours behind New York. If you want to make Wednesday's welcome dinner, consider flying out Tuesday.</p>
+      <p>It's the only commercial airport on Maui. Direct flights from most West Coast cities. From the East Coast or Midwest, expect one connection — usually through LAX, SFO, or SEA. Expect $350–$650 round trip depending on where you're coming from. Heads up: flights take most of a day from the East Coast, and Hawaii is 6 hours behind New York. If you want to make Wednesday's welcome dinner, it will be an early morning</p>
     </div>
     <div class="travel-card reveal reveal-delay-1">
       <p class="travel-card-eyebrow">Stay</p>
@@ -1178,6 +1256,12 @@
       <p>Hawaii Standard Time is 3 hours behind Pacific (6 behind Eastern) — plan accordingly, especially for arrival day. September highs are in the upper 80s. Reef-safe sunscreen is required by law. Pack light layers for early mornings — it can be cool at elevation. Most guests are arriving Tuesday or Wednesday and departing Sunday.</p>
     </div>
   </div>
+</div>
+
+<!-- ============ BREATHER 3 — FOOD ============ -->
+<div class="breather">
+  <div class="breather-img" id="breather3" style="background-image: url('images/passionfruit.jpeg');"></div>
+  <div class="breather-overlay warm"></div>
 </div>
 
 <!-- ============ EXPLORE ============ -->
@@ -1227,6 +1311,13 @@
     </div>
   </div>
 </section>
+
+<!-- ============ BREATHER 4 — VILLAGE ============ -->
+<div class="breather">
+  <div class="breather-img" id="breather4" style="background-image: url('images/village.jpeg');"></div>
+  <div class="breather-overlay dark"></div>
+  <p class="breather-caption">Whaler's Village</p>
+</div>
 
 <!-- ============ RSVP ============ -->
 <section class="rsvp-section" id="rsvp">
@@ -1336,28 +1427,42 @@
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
   // === PARALLAX ===
-  const heroBgLayer = document.getElementById('heroBgLayer');
+  const heroPhoto = document.getElementById('heroPhoto');
   const travelParallax = document.getElementById('travelParallax');
+  const breather1 = document.getElementById('breather1');
+  const breather2 = document.getElementById('breather2');
+  const breather3 = document.getElementById('breather3');
+  const breather4 = document.getElementById('breather4');
+
+  function applyParallax(element, speed) {
+    if (!element) return;
+    const rect = element.parentElement.getBoundingClientRect();
+    const vh = window.innerHeight;
+    if (rect.top < vh && rect.bottom > 0) {
+      const progress = (vh - rect.top) / (vh + rect.height);
+      const offset = (progress - 0.5) * speed;
+      element.style.transform = `translateY(${offset}px)`;
+    }
+  }
 
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
     const vh = window.innerHeight;
 
-    // Hero parallax
+    // Hero parallax — photo moves slower than scroll
     if (scrollY < vh * 1.5) {
-      const offset = scrollY * 0.3;
-      heroBgLayer.style.transform = `translateY(${offset}px)`;
+      heroPhoto.style.transform = `translateY(${scrollY * 0.25}px)`;
     }
 
+    // Breather parallax
+    applyParallax(breather1, 100);
+    applyParallax(breather2, 100);
+    applyParallax(breather3, 100);
+    applyParallax(breather4, 100);
+
     // Travel section parallax
-    if (travelParallax) {
-      const travelRect = travelParallax.parentElement.getBoundingClientRect();
-      if (travelRect.top < vh && travelRect.bottom > 0) {
-        const progress = (vh - travelRect.top) / (vh + travelRect.height);
-        const offset = (progress - 0.5) * 80;
-        travelParallax.style.transform = `translateY(${offset}px)`;
-      }
-    }
+    applyParallax(travelParallax, 80);
+
   }, { passive: true });
 
   // === COUNTDOWN ===
