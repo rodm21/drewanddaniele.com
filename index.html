@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Drew & Daniele — Maui 2026</title>
+<title>Drew & Daniele – Maui 2026</title>
 <!-- Open Graph -->
-<meta property="og:title" content="You're Invited — Maui 2026!">
+<meta property="og:title" content="You're Invited – Maui 2026!">
 <meta property="og:description" content="You're cordially-ish invited. September 2–6, Ka'anapali Beach.">
 <meta property="og:image" content="https://drewanddaniele.com/og-image.jpg">
 <meta property="og:url" content="https://drewanddaniele.com">
@@ -13,7 +13,7 @@
 
 <!-- Twitter/iMessage -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="You're Invited — Maui 2026!">
+<meta name="twitter:title" content="You're Invited – Maui 2026!">
 <meta name="twitter:description" content="You're cordially-ish invited. September 2–6, Ka'anapali Beach.">
 <meta name="twitter:image" content="https://drewanddaniele.com/og-image.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
@@ -121,7 +121,7 @@
   .nav-links a:hover::after { width: 100%; }
 
   /* ============================================
-     HERO — FULL VIEWPORT WITH PHOTO
+     HERO – FULL VIEWPORT WITH PHOTO
      ============================================ */
   .hero {
     position: relative;
@@ -133,6 +133,17 @@
     overflow: hidden;
   }
 
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    will-change: transform;
+  }
+
   .hero-photo {
     position: absolute;
     inset: 0;
@@ -141,6 +152,7 @@
     background-size: cover;
     background-position: center;
     will-change: transform;
+    display: none;
   }
 
   .hero-overlay {
@@ -394,7 +406,7 @@
   }
 
   /* ============================================
-     BREATHER IMAGES — FULL WIDTH PHOTO BREAKS
+     BREATHER IMAGES – FULL WIDTH PHOTO BREAKS
      ============================================ */
   .breather {
     height: 70vh;
@@ -447,7 +459,7 @@
   }
 
   /* ============================================
-     SCHEDULE — STACKED FULL-SCREEN CARDS
+     SCHEDULE – STACKED FULL-SCREEN CARDS
      ============================================ */
   .schedule-intro {
     padding: 10rem 2rem 6rem;
@@ -580,7 +592,7 @@
   }
 
   /* ============================================
-     TRAVEL — PARALLAX-STYLE WITH PHOTO
+     TRAVEL – PARALLAX-STYLE WITH PHOTO
      ============================================ */
   .travel-hero {
     height: 60vh;
@@ -679,7 +691,7 @@
   .travel-card a:hover { opacity: 0.7; }
 
   /* ============================================
-     EXPLORE — GRID
+     EXPLORE – GRID
      ============================================ */
   .explore-section {
     background: var(--sand);
@@ -1043,6 +1055,10 @@
     .explore-grid { grid-template-columns: 1fr; }
     .countdown-grid { gap: 1.5rem; }
     .breather { height: 40vh; }
+
+    /* Mobile: show static image fallback, hide video */
+    .hero-video { display: none; }
+    .hero-photo { display: block; }
   }
 </style>
 </head>
@@ -1061,6 +1077,9 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
+  <video class="hero-video" id="heroVideo" autoplay muted loop playsinline poster="images/blackrock.jpg">
+    <source src="images/roller.mp4" type="video/mp4">
+  </video>
   <div class="hero-photo" id="heroPhoto"></div>
   <div class="hero-overlay"></div>
   <div class="hero-grain"></div>
@@ -1118,7 +1137,7 @@
   </div>
 </section>
 
-<!-- ============ BREATHER 1 — DANIELE ============ -->
+<!-- ============ BREATHER 1 – DANIELE ============ -->
 <div class="breather">
   <div class="breather-img" id="breather1" style="background-image: url('images/grass.jpg');"></div>
   <div class="breather-overlay warm"></div>
@@ -1128,7 +1147,7 @@
 <div class="schedule-intro" id="schedule">
   <p class="section-eyebrow reveal">The Week</p>
   <h2 class="section-heading reveal reveal-delay-1">Five Days in Paradise</h2>
-  <p class="section-sub reveal reveal-delay-2">Show up to everything or nothing — we're just happy you made the trip. Well, almost everything. Show up to brunch.</p>
+  <p class="section-sub reveal reveal-delay-2">Show up to everything or nothing – we're just happy you made the trip. Well, almost everything. Show up to brunch.</p>
 </div>
 
 <!-- Wednesday -->
@@ -1141,8 +1160,8 @@
     </div>
     <div class="event-details">
       <h3 class="event-title">Welcome Dinner</h3>
-      <p class="event-time">6:30 PM — Monkeypod Kitchen, Whaler's Village</p>
-      <p class="event-description">You made it. Flights are behind you, vacation has begun. Come grab a drink, say hello to everyone, and eat something that isn't an airplane pretzel. Casual dress — you just got off a plane, we get it.</p>
+      <p class="event-time">6:30 PM – Monkeypod Kitchen, Whaler's Village</p>
+      <p class="event-description">You made it. Flights are behind you, vacation has begun. Come grab a drink, say hello to everyone, and eat something that isn't an airplane pretzel. Casual dress – you just got off a plane, we get it.</p>
       <p class="event-note">Whaler's Village is a 5-minute walk from the Sheraton. There may or may not be an outdoor movie for the kids.</p>
     </div>
   </div>
@@ -1158,8 +1177,8 @@
     </div>
     <div class="event-details">
       <h3 class="event-title">Pick Your Adventure</h3>
-      <p class="event-time">All Day — Choose Your Own</p>
-      <p class="event-description">This is your free day to explore. Golf with the crew, snorkel at Molokini, catch sunrise from 10,000 feet at Haleakalā, or just post up at the pool with a book and a Mai Tai. We'll have options organized — more details to come.</p>
+      <p class="event-time">All Day – Choose Your Own</p>
+      <p class="event-description">This is your free day to explore. Golf with the crew, snorkel at Molokini, catch sunrise from 10,000 feet at Haleakalā, or just post up at the pool with a book and a Mai Tai. We'll have options organized – more details to come.</p>
       <p class="event-note">Evening plans TBD. Possibly a sunset gathering on the beach. Stay tuned.</p>
     </div>
   </div>
@@ -1175,9 +1194,9 @@
     </div>
     <div class="event-details">
       <h3 class="event-title">Beach Day & Dinner</h3>
-      <p class="event-time">All Day — Ka'anapali Beach & Leilani's at 5:00 PM</p>
+      <p class="event-time">All Day – Ka'anapali Beach & Leilani's at 5:00 PM</p>
       <p class="event-description">Morning and afternoon on the beach with cabanas reserved for the group. Try your hand at lei making at the resort. Then in the evening, we're taking over Leilani's restaurant for a private dinner right on the water.</p>
-      <p class="event-note">Leilani's is also in Whaler's village — no Uber required, more Mai Tais permitted.</p>
+      <p class="event-note">Leilani's is also in Whaler's village – no Uber required, more Mai Tais permitted.</p>
     </div>
   </div>
 </div>
@@ -1192,8 +1211,8 @@
     </div>
     <div class="event-details">
       <h3 class="event-title">The Brunch</h3>
-      <p class="event-time">10:00 AM — Location TBA</p>
-      <p class="event-description">This is the one you can't miss. We mean it. Clear your morning, wear something that makes you feel good, and come hungry. There will be cake — it's also Griffin's birthday, so we're celebrating that too.</p>
+      <p class="event-time">10:00 AM – Location TBA</p>
+      <p class="event-description">This is the one you can't miss. We mean it. Clear your morning, wear something that makes you feel good, and come hungry. There will be cake – it's also Griffin's birthday, so we're celebrating that too.</p>
       <p class="event-note">Seriously. Be there. Trust us.</p>
     </div>
   </div>
@@ -1210,12 +1229,12 @@
     <div class="event-details">
       <h3 class="event-title">Until Next Time</h3>
       <p class="event-time">Whenever You Wake Up</p>
-      <p class="event-description">Check out, grab one last açaí bowl, hug everyone twice. If you booked an afternoon flight, there's still time for a morning swim. Safe travels home — and don't forget your sunscreen at the pool.</p>
+      <p class="event-description">Check out, grab one last a&ccedil;a&iacute; bowl, hug everyone twice. If you booked an afternoon flight, there's still time for a morning swim. Safe travels home – and don't forget your sunscreen at the pool.</p>
     </div>
   </div>
 </div>
 
-<!-- ============ BREATHER 2 — TURTLES ============ -->
+<!-- ============ BREATHER 2 – TURTLES ============ -->
 <div class="breather">
   <div class="breather-img" id="breather2" style="background-image: url('images/turtles.jpeg');"></div>
   <div class="breather-overlay dark"></div>
@@ -1238,27 +1257,27 @@
     <div class="travel-card reveal">
       <p class="travel-card-eyebrow">Airport</p>
       <h3 class="travel-card-title">Fly into Kahului (OGG)</h3>
-      <p>It's the only commercial airport on Maui. Direct flights from most West Coast cities. From the East Coast or Midwest, expect one connection — usually through LAX, SFO, or SEA. Expect $350–$650 round trip depending on where you're coming from. Heads up: flights take most of a day from the East Coast, and Hawaii is 6 hours behind New York. If you want to make Wednesday's welcome dinner, it will be an early morning</p>
+      <p>It's the only commercial airport on Maui. Direct flights from most West Coast cities. From the East Coast or Midwest, expect one connection – usually through LAX, SFO, or SEA. Expect $350–$650 round trip depending on where you're coming from. Heads up: flights take most of a day from the East Coast, and Hawaii is 6 hours behind New York. If you want to make Wednesday's welcome dinner, it will be an early morning</p>
     </div>
     <div class="travel-card reveal reveal-delay-1">
       <p class="travel-card-eyebrow">Stay</p>
       <h3 class="travel-card-title">Sheraton Maui Resort</h3>
-      <p>Right on Ka'anapali Beach. We have a room block with a group rate — reach out to us directly for the booking code. The resort is about 50 minutes from the airport. <a href="https://www.marriott.com/en-us/hotels/hnmsi-sheraton-maui-resort-and-spa/overview/">View the resort →</a></p>
+      <p>Right on Ka'anapali Beach. We have a room block with a group rate – reach out to us directly for the booking code. The resort is about 50 minutes from the airport. <a href="https://www.marriott.com/en-us/hotels/hnmsi-sheraton-maui-resort-and-spa/overview/">View the resort â†’</a></p>
     </div>
     <div class="travel-card reveal reveal-delay-2">
       <p class="travel-card-eyebrow">Getting Around</p>
       <h3 class="travel-card-title">Rent a Car</h3>
-      <p>Strongly recommended. You'll want one to explore the island, and Maui rental cars sell out fast. Book as early as you can — seriously, don't wait on this one.</p>
+      <p>Strongly recommended. You'll want one to explore the island, and Maui rental cars sell out fast. Book as early as you can – seriously, don't wait on this one.</p>
     </div>
     <div class="travel-card reveal reveal-delay-3">
       <p class="travel-card-eyebrow">Good to Know</p>
       <h3 class="travel-card-title">Maui Essentials</h3>
-      <p>Hawaii Standard Time is 3 hours behind Pacific (6 behind Eastern) — plan accordingly, especially for arrival day. September highs are in the upper 80s. Reef-safe sunscreen is required by law. Pack light layers for early mornings — it can be cool at elevation. Most guests are arriving Wednesday and departing Sunday.</p>
+      <p>Hawaii Standard Time is 3 hours behind Pacific (6 behind Eastern) – plan accordingly, especially for arrival day. September highs are in the upper 80s. Reef-safe sunscreen is required by law. Pack light layers for early mornings – it can be cool at elevation. Most guests are arriving Wednesday and departing Sunday.</p>
     </div>
   </div>
 </div>
 
-<!-- ============ BREATHER 3 — FOOD ============ -->
+<!-- ============ BREATHER 3 – FOOD ============ -->
 <div class="breather">
   <div class="breather-img" id="breather3" style="background-image: url('images/passionfruit.jpeg');"></div>
   <div class="breather-overlay warm"></div>
@@ -1273,37 +1292,37 @@
 
     <div class="explore-grid reveal reveal-delay-3">
       <div class="explore-item">
-        <span class="explore-icon">🌊</span>
+        <span class="explore-icon">&#x1F30A;</span>
         <h3 class="explore-name">Molokini Crater</h3>
         <p class="explore-desc">Half-submerged volcanic crater with visibility for days. Book a morning snorkel tour from Ma'alaea Harbor.</p>
         <span class="explore-tag">Half Day</span>
       </div>
       <div class="explore-item">
-        <span class="explore-icon">🌅</span>
+        <span class="explore-icon">&#x1F305;</span>
         <h3 class="explore-name">Haleakalā Sunrise</h3>
         <p class="explore-desc">Sunrise from 10,000 feet. Yes, you leave at 3 AM. Yes, it's freezing up there. Yes, it's worth it. Reserve at recreation.gov.</p>
         <span class="explore-tag">Early Morning</span>
       </div>
       <div class="explore-item">
-        <span class="explore-icon">🌴</span>
+        <span class="explore-icon">&#x1F334;</span>
         <h3 class="explore-name">Road to Hana</h3>
         <p class="explore-desc">Waterfalls, bamboo forests, black sand beaches, and 620 curves. Give yourself a full day and pack snacks.</p>
         <span class="explore-tag">Full Day</span>
       </div>
       <div class="explore-item">
-        <span class="explore-icon">⛳</span>
+        <span class="explore-icon">&#x26F3;</span>
         <h3 class="explore-name">Kapalua Golf</h3>
         <p class="explore-desc">The Plantation Course. Where the PGA Tournament of Champions is played. You'll lose some balls in the ocean. Worth it.</p>
         <span class="explore-tag">Half Day</span>
       </div>
       <div class="explore-item">
-        <span class="explore-icon">🏖</span>
+        <span class="explore-icon">&#x1F3D6;&#xFE0F;</span>
         <h3 class="explore-name">Ka'anapali Beach</h3>
         <p class="explore-desc">Right outside the hotel. Walk north for quiet stretches or south to Black Rock for cliff jumping. The default plan is always a good plan.</p>
         <span class="explore-tag">Anytime</span>
       </div>
       <div class="explore-item">
-        <span class="explore-icon">🍽</span>
+        <span class="explore-icon">&#x1F37D;&#xFE0F;</span>
         <h3 class="explore-name">Eat Everything</h3>
         <p class="explore-desc">Mama's Fish House if you can get a reservation. The Gazebo for breakfast (get there early). Monkeypod for happy hour. You won't have a bad meal.</p>
         <span class="explore-tag">Always</span>
@@ -1312,11 +1331,11 @@
   </div>
 </section>
 
-<!-- ============ BREATHER 4 — VILLAGE ============ -->
+<!-- ============ BREATHER 4 – VILLAGE ============ -->
 <div class="breather">
   <div class="breather-img" id="breather4" style="background-image: url('images/village.jpeg');"></div>
   <div class="breather-overlay dark"></div>
-  <p class="breather-caption">Napili Bay</p>
+  <p class="breather-caption">Whaler's Village</p>
 </div>
 
 <!-- ============ RSVP ============ -->
@@ -1400,7 +1419,7 @@
 <!-- ============ FOOTER ============ -->
 <footer>
   <p class="footer-names">Drew <em>&</em> Daniele</p>
-  <p class="footer-sub">Ka'anapali Beach, Maui — September 2026</p>
+  <p class="footer-sub">Ka'anapali Beach, Maui – September 2026</p>
   <p class="footer-tagline">See you in the sand.</p>
 </footer>
 
@@ -1428,6 +1447,7 @@
 
   // === PARALLAX ===
   const heroPhoto = document.getElementById('heroPhoto');
+  const heroVideo = document.getElementById('heroVideo');
   const travelParallax = document.getElementById('travelParallax');
   const breather1 = document.getElementById('breather1');
   const breather2 = document.getElementById('breather2');
@@ -1449,9 +1469,11 @@
     const scrollY = window.scrollY;
     const vh = window.innerHeight;
 
-    // Hero parallax — photo moves slower than scroll
+    // Hero parallax - video and photo fallback
     if (scrollY < vh * 1.5) {
-      heroPhoto.style.transform = `translateY(${scrollY * 0.25}px)`;
+      const t = `translateY(${scrollY * 0.25}px)`;
+      if (heroVideo) heroVideo.style.transform = t;
+      if (heroPhoto) heroPhoto.style.transform = t;
     }
 
     // Breather parallax
@@ -1526,7 +1548,7 @@
       });
 
       if (response.ok) {
-        btn.textContent = 'MAHALO! ✓';
+        btn.textContent = 'MAHALO! âœ“';
         btn.style.background = 'var(--palm)';
         setTimeout(() => {
           btn.textContent = 'SEND RSVP';
